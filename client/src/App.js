@@ -1,15 +1,25 @@
-import React, {Fragment} from "react";
-import Landing from './Components/layout/Landing'
-import Navbar from './Components/layout/Navbar'
+import React, { Fragment } from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Login from "./Components/layout/auth/Login";
+import Navbar from "./Components/layout/Navbar";
+import Register from "./Components/layout/auth/Register";
+import Landing from "./Components/layout/Landing";
 
 import "./App.css";
 
-
 const App = () => (
-<Fragment>
-<Navbar/>
-<Landing/>
-</Fragment>
+  <Router>
+    <Fragment>
+      <Navbar />
+      <Route exact path="/" component={Landing} />
+      <section className="container">
+          <Switch>
+              <Route exact path='/register' component ={Register}/>
+              <Route exact path='/login' component ={Login}/>
+          </Switch>
+      </section>
+    </Fragment>
+  </Router>
 );
 
 export default App;
