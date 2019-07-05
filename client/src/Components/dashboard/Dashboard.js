@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {getCurrentProfile} from '../../actions/profile'
 
-const Dashboard = ({getCurrentProfile, auth: {user}, profile:{profile,loading}}) => {
+const Dashboard = ({getCurrentProfile, auth, profile}) => {
      // eslint-disable-next-line
 useEffect(()=>{
     getCurrentProfile();
