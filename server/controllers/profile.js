@@ -7,6 +7,7 @@ const { check, validationResult } = require("express-validator/check");
 
 const Profile = require("../Models/Profile");
 const User = require("../Models/User");
+const Post = require("../Models/Post");
 
 router.get("/me", auth, async (req, res) => {
   try {
@@ -27,14 +28,14 @@ router.get("/me", auth, async (req, res) => {
 });
 
 router.post(
-  '/',
+  "/",
   [
     auth,
     [
-      check('status', 'Status is required')
+      check("status", "Status is required")
         .not()
         .isEmpty(),
-      check('skills', 'Skills is required')
+      check("skills", "Skills is required")
         .not()
         .isEmpty()
     ]
@@ -70,7 +71,7 @@ router.post(
     if (status) profileFields.status = status;
     if (githubusername) profileFields.githubusername = githubusername;
     if (skills) {
-      profileFields.skills = skills.split(',').map(skill => skill.trim());
+      profileFields.skills = skills.split(",").map(skill => skill.trim());
     }
 
     // Build social object
@@ -102,7 +103,7 @@ router.post(
       res.json(profile);
     } catch (err) {
       console.error(err.message);
-      res.status(500).send('Server Error');
+      res.status(500).send("Server Error");
     }
   }
 );
@@ -137,6 +138,8 @@ router.get("/user/:user_id", async (req, res) => {
 
 router.delete("/", auth, async (req, res) => {
   try {
+    await Post.deleteMany({ user: req.user.id });
+
     await Profile.findOneAndRemove({ user: req.user.id });
 
     await User.findOneAndRemove({ _id: req.user.id });
@@ -314,14 +317,14 @@ router.get("/github/:username", async (req, res) => {
       headers: { "user-agent": "node.js" }
     };
 
-    request(ptions, (error, response, body)=>{
-      if(error) console.error(error)
+    request(ptions, (error, response, body) => {
+      if (error) console.error(error);
 
-      if(response.statusCode  !== 200){
-        res.status(404).json({msg: "No Github profile found"})
+      if (response.statusCode !== 200) {
+        res.status(404).json({ msg: "No Github profile found" });
       }
-      return res.json(JSON.parse(body))
-    })
+      return res.json(JSON.parse(body));
+    });
   } catch (err) {
     console.error(err.message);
     res.status(500).send("Server Error");
