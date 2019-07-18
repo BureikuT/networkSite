@@ -18,7 +18,7 @@ import EditProfile from "./Components/profile-forms/EditProfile";
 import store from "./store";
 
 import "./App.css";
-import { addExperience } from "./actions/profile";
+
 
 if (localStorage.token) {
   setAuthToken(localStorage.token);
