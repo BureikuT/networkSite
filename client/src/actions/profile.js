@@ -45,7 +45,7 @@ export const getProfiles = () => async dispatch => {
   }
 };
 
-export const getgithubRepos = username => async dispatch => {
+export const getGithubRepos = username => async dispatch => {
   try {
     const res = await axios.get(`/api/profile/github/${username}`);
 
@@ -59,7 +59,7 @@ export const getgithubRepos = username => async dispatch => {
       payload: { msg: err.response.statusText, status: err.response.status }
     });
   }
-};
+}
 
 export const getProfileById = userId => async dispatch => {
   try {

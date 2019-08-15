@@ -5,10 +5,10 @@ import PropTypes from "prop-types";
 import Spinner from "../layout/Spinner";
 import ProfileTop from "./ProfileTop.js";
 import ProfileAbout from "./ProfileAbout";
-import ProfileExperience from './ProfileExperience'
-import ProfileEducation from './ProfileEducation'
+import ProfileExperience from "./ProfileExperience";
+import ProfileEducation from "./ProfileEducation";
+import ProfileGithub from "./ProfileGithub";
 import { getProfileById } from "../../actions/profile";
-
 
 const Profile = ({
   getProfileById,
@@ -74,6 +74,9 @@ const Profile = ({
                 <h4>No education credientials</h4>
               )}
             </div>
+            {profile.githubusername && (
+              <ProfileGithub username={profile.githubusername} />
+            )}
           </div>
         </Fragment>
       )}
