@@ -15,12 +15,11 @@ import AddExperience from "./Components/profile-forms/AddExperience";
 import AddEducation from "./Components/profile-forms/AddEducation";
 import Profiles from "./Components/profiles/Profiles";
 import Profile from "./Components/profile/Profile";
-import Posts from './Components/posts/Posts'
+import Posts from "./Components/posts/Posts";
 import EditProfile from "./Components/profile-forms/EditProfile";
 import store from "./store";
 
 import "./App.css";
-
 
 if (localStorage.token) {
   setAuthToken(localStorage.token);
