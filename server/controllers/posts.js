@@ -74,11 +74,11 @@ router.delete("/:id", auth, async (req, res) => {
   try {
     const posts = await Post.findById(req.params.id);
 
-    if (!post) {
+    if (!posts) {
       return res.status(404).json({ msg: "Post not found" });
     }
 
-    await post.remove();
+    await posts.remove();
 
     res.json({ msg: "Post removed" });
   } catch (err) {
