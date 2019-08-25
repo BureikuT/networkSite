@@ -6,7 +6,7 @@ import { addPost } from "../../actions/post";
 const PostForm = ({ addPost }) => {
   const [text, setText] = useState("");
   return (
-    <div>
+    
       <div class="post-form">
         <div class="bg-primary p">
           <h3>Say Something...</h3>
@@ -31,7 +31,7 @@ const PostForm = ({ addPost }) => {
           <input type="submit" class="btn btn-dark my-1" value="Submit" />
         </form>
       </div>
-    </div>
+   
   );
 };
 
