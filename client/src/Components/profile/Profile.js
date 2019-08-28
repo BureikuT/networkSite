@@ -20,8 +20,8 @@ const Profile = ({
     () => {
       getProfileById(match.params.id);
     },
-    [getProfileById],
-    match.params.id
+    [getProfileById, match.params.id]
+   
   );
 
   return (

@@ -11,6 +11,7 @@ const CommentItem = ({
   auth,
   deleteComment
 }) => (
+  <Fragment>
   <div className="post bg-white p-1 my-1">
     <div>
       <Link to={`/profile/${user}`}>
@@ -34,6 +35,7 @@ const CommentItem = ({
       )}
     </div>
   </div>
+  </Fragment>
 );
 
 CommentItem.propTypes = {
