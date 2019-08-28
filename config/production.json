@@ -1,0 +1,10 @@
+{
+    "mongoURI":
+    "mongodb+srv://owner:ZlHbTnj4xVPE35I3@cluster0-j3lhp.mongodb.net/test?retryWrites=true&w=majority",
+
+    "jwtSecret": "thewheeloffateisturning",
+
+    "githubClientId": "5f4b9e943ea5907ec254",
+
+    "githubSecret": "8282a154a045816ab13c420260d8707b341908dd"
+  }
